@@ -1,177 +1,481 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meu Portfólio</title>
-<link rel="stylesheet" href="templaite1.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Trovato | Portfólio Profissional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .menu {
+            width: 300px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 1.5rem;
+            position: fixed;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .menu img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .menu h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .menu nav {
+            width: 100%;
+        }
+        
+        .menu ul {
+            list-style: none;
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+        
+        .menu ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .menu ul li a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: block;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+        }
+        
+        .menu ul li a:hover, .menu ul li a:focus {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .conteudo {
+            margin-left: 300px;
+            flex: 1;
+            padding: 3rem 5rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+        }
+        
+        h4 {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .projeto {
+            margin-bottom: 2rem;
+        }
+        
+        .projeto h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .projeto img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-top: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .contato-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .contato-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .contato-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .botao {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .botao:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .experiencia-item, .educacao-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .experiencia-item:last-child, .educacao-item:last-child {
+            border-bottom: none;
+        }
+        
+        .destaque {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+        }
+        
+        .destaque h4 {
+            color: var(--accent-color);
+        }
+        
+        .habilidades {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        
+        .habilidade {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 992px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .menu {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 1.5rem;
+            }
+            
+            .conteudo {
+                margin-left: 0;
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .conteudo {
+                padding: 1.5rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <div class="menu">
-        <img src="Jonathan.JPG" alt="Foto de Jonathan"> 
-         <h2>Jonathan Trovato</h2>
-         <nav>
-             <ul class="inf1">
-                <li><a href="#sobre">Sobre Mim</a></li>
-             </ul>
-             <ul class="inf1">
-                <li><a href="#Formação">Formação Acadêmica</a></li>
+        <img src="Jonathan.JPG" alt="Jonathan Trovato - Desenvolvedor e Profissional de TI"> 
+        <h2>Jonathan Trovato</h2>
+        <p style="color: #bdc3c7; text-align: center; margin-bottom: 2rem;">Desenvolvedor | Engenheiro de Software | Cientista da Computação</p>
+        <nav>
+            <ul>
+                <li><a href="#inicio"><i class="fas fa-home"></i> Início</a></li>
+                <li><a href="#sobre"><i class="fas fa-user"></i> Sobre Mim</a></li>
+                <li><a href="#formacao"><i class="fas fa-graduation-cap"></i> Formação</a></li>
+                <li><a href="#experiencia"><i class="fas fa-briefcase"></i> Experiência</a></li>
+                <li><a href="#projetos"><i class="fas fa-code"></i> Projetos</a></li>
+                <li><a href="#contato"><i class="fas fa-envelope"></i> Contato</a></li>
             </ul>
-             <ul class="inf1">
-                 <li><a href="#curriculo">Currículo</a></li>
-             </ul>
-             <ul class="inf1">
-                 <li><a href="#projetos">Projetos</a></li>
-             </ul>
-             <ul class="inf1">
-                 <li><a href="#contato">Contato</a></li>
-             </ul>
-             
-             
-         </nav>
-     </div>
-<div class="conteudo">
-    <section id="inicio">
-        <h1>Bem-vindo ao Meu Portfólio</h1>
-    </section>
+        </nav>
+    </div>
 
-    
-
-    <section id="sobre">
-        <h2>Sobre Mim</h2>
-        <p> Meu amor pela área de programação começou no ano de 2015, que foi quando consegui ingressar na minha primeira graduação em Engenharia Elétrica. Infelizmente, não consegui concluir esse curso, pois eu trabalhava muito cedo e chegava da faculdade muito tarde. Então, decidi começar a estudar online, pois era mais flexível em relação ao horário, permitindo que eu estabelecesse meu próprio cronograma de estudos. <br>
-            Logo, comecei minha primeira graduação em Gestão da Tecnologia da Informação, juntamente com um curso técnico em Eletrotécnica. Ao terminar ambos, iniciei mais dois cursos: uma capacitação em Marketing Digital e uma pós-graduação em Engenharia de Software. Durante esse tempo, participei de um projeto desenvolvido pelo IFET para ajudar na época da pandemia. <br>
-            Como gosto muito de aprender cada dia mais, comecei outra graduação em Ciências da Computação, além de um curso de Desenvolvimento Web (que já concluí) e um curso de inglês (do básico ao avançado).
-    </section>
-
-    <section id="Formação">
-        <h3>Educação</h3>
-        <ul>
-            <li>
-                <h4>UNIVERSIDADE DE FRANCA, 2024;</h4>
-                <p>Cursando Ciências da Computação</p>
-
-            </li>
-            <li>
-                <h4>FAVENI/MG, 2022;</h4>
-                <p>Pós-Graduação em Engenharia de Sotftware</p>
-            </li>
-            <li>
-                <h4> UNIVERSIDADE DE FRANCA, 2020;</h4>
-                <p>Graduação em Gestão da Tecnologia da Informação</p>
-            </li>
-            <li>
-                <h4>INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUDESTE DE MINAS GERAIS (IF SUDESTE MG), 2020;</h4>
-                <p>Técnico em Eletrotécnica</p>
-            </li>
+    <div class="conteudo">
+        <section id="inicio">
+            <h1>Jonathan Trovato</h1>
+            <p class="destaque" style="font-size: 1.2rem; line-height: 1.8;">
+                Profissional de Tecnologia com formação em Gestão da TI, pós-graduação em Engenharia de Software e atualmente cursando Ciências da Computação. Combinando experiência prática em desenvolvimento com sólidos conhecimentos teóricos para criar soluções inovadoras e eficientes.
+            </p>
             
-            <li>
-                <h4>FAVENI/MG, 2022.</h4>
-                <p>Marketing Digital - Capacitação - 240 Horas</p>
+            <div class="habilidades">
+                <span class="habilidade">JavaScript</span>
+                <span class="habilidade">Node.js</span>
+                <span class="habilidade">HTML5/CSS3</span>
+                <span class="habilidade">React</span>
+                <span class="habilidade">Angular</span>
+                <span class="habilidade">Banco de Dados</span>
+                <span class="habilidade">Express</span>
+                <span class="habilidade">Git</span>
+            </div>
+        </section>
 
-            </li>
+        <section id="sobre">
+            <h2>Sobre Mim</h2>
+            <p>
+                Sou um profissional apaixonado por tecnologia e inovação, com trajetória marcada por constante busca por conhecimento e aprimoramento. Minha jornada na área de programação começou em 2015 durante minha primeira graduação em Engenharia Elétrica, onde tive meu primeiro contato com a lógica de programação e desenvolvimento de sistemas.
+            </p>
+            <p>
+                Diante dos desafios de conciliar trabalho e estudos, adaptei minha abordagem educacional, migrando para modalidades online que me permitiram maior flexibilidade sem comprometer a qualidade do aprendizado. Essa adaptação demonstra minha capacidade de resiliência e solução de problemas - características essenciais para um profissional de TI.
+            </p>
+            <p>
+                Minha formação multidisciplinar, que inclui Gestão da Tecnologia da Informação, Eletrotécnica e Engenharia de Software, me proporciona uma visão holística dos projetos, permitindo-me entender tanto os aspectos técnicos quanto gerenciais das soluções tecnológicas.
+            </p>
+            <p>
+                Atualmente, como estudante de Ciências da Computação, continuo expandindo meus conhecimentos em algoritmos, estruturas de dados e desenvolvimento de software, sempre com foco na aplicação prática desses conceitos para resolver problemas reais.
+            </p>
+        </section>
 
-            <li>
-                <h4>Informações Complementares.</h4>
-                <p>Conhecimentos em: JavaScript | Node.js | ESNext | HTML5 | CSS3 | Ajax | GULP | WEBPACK | jQuery | Bootstrap | React | Next | VueJS | Angular9 | Banco de dados relacional | Banco de dados não relacional | Express</p>
-            </li>
+        <section id="formacao">
+            <h2>Formação Acadêmica</h2>
             
-        </ul>
-    </section>
-
-    <section id="curriculo">
-        <h2>Currículo</h2>
-        <h3>Experiência Profissional</h3>
-        <ul>
-            <li>
-                <h4>CEVA LOGISTCS LTDA - (Outubro/2015 a Janeiro/2019)</h4>
-                <p class="Func"><b>Função:</b></p>
-                <div class="funct"> 
-                    <p>>Auxiliar de escritório em geral</p>
-                </div>
-                <b>Descrição:</b>
-                <div class="description">
-                    <p>>Controle de Estoque, realizando constante inventário e conferindo correntamente o FIFO;</p>
-                    <p>>Controle de Linha de Produção e Sequenciamento de peças; </p>
-                    <p>>Realização de inventário permanente, confrontando físico com sistema (fechamento anual); </p>
-                    <p>>Conferencia de material para entrada sistêmica atraves de NF; </p>
-                    <p>>Controle através de KANBAN;</p>
-                    <p>>Procura da melhoria continua, realizando KAIZEN’s, e realização constante de 5S na área;</p>
-                    <p>>>Gerenciamento de pessoas; </p>
-                    <p>>Criação de indicadores, e apresentações de resultados;</p>
-                    <p>>Controle da logistica reversa, fornecendo embalagens vazias para o fornecedor principal.</p>
-                </div>
-                <br>
-            </li>
-            <li>
-                <h4>Sesé Logística do Brasil - (Janeiro/2019 a Junho/2019)</h4>
-                <p class="Func"><b>Função:</b></p>
-                <div class="funct"> 
-                    <p>>Auxiliar de escritório em geral</p>
-                </div>
-                <b>Descrição:</b>
-                <div class="description">
-                    <p>>Controle de Estoque, realizando constante inventário e conferindo correntamente o FIFO;</p>
-                    <p>>Controle de Linha de Produção e Sequenciamento de peças; </p>
-                    <p>>Realização de inventário permanente, confrontando físico com sistema (fechamento anual); </p>
-                    <p>>Conferencia de material para entrada sistêmica atraves de NF; </p>
-                    <p>>Controle através de KANBAN;</p>
-                    <p>>Procura da melhoria continua, realizando KAIZEN’s, e realização constante de 5S na área;</p>
-                    <p>>>Gerenciamento de pessoas; </p>
-                    <p>>Criação de indicadores, e apresentações de resultados;</p>
-                    <p>>Controle da logistica reversa, fornecendo embalagens vazias para o fornecedor principal.</p>
-                </div>
-            </li>
-            <li>
-                <h4>Codeme Engenharia S.A - (setembro/2020 a maio/2024)</h4>
-                <p class="Func"><b>Função:</b></p>
-                <div class="funct"> 
-                    <p>>Montador de Fabricação</p>
-                </div>
-                <b>Descrição:</b>
-                <div class="description">
-                    <p>>Realização da preparação de peças para solda e interpretações de desenhos estruturais;  ;</p>
-                    <p>>Operação de ponte Rolante.  </p>
-                    <p>>Corte com maçarico; </p>
-                    <p>>Ponteamento com eletrodo.</p>
-                </div>
-                    
-            </li>
-        </ul>
-    </section>
-
-    <section id="projetos">
-        <h2>Projetos</h2>
-        <div class="projeto">
-            <h3> ESTUDO DA VIABILIDADE DO USO DE UM SISTEMA ELETROMECÂNICO PARA AUTOMATIZAÇÃO DE REANIMADOR MANUAL, <br>EM PACIENTES COM DIFICULDADES RESPIRATÓRIAS</h3>
-            <p>Acesse o link abaixo para visualizar o artigo:</p>
-        
-                <ul class="bot1">
-                    <a href="https://www.nucleodoconhecimento.com.br/tecnologia/dificuldades-respiratorias">
-                        <button1 id="link"onclick="link">Núcleo do Conhecimento</button1>
-                    </a><br>
+            <div class="educacao-item">
+                <h4>UNIVERSIDADE DE FRANCA</h4>
+                <p><strong>Bacharelado em Ciências da Computação</strong> | 2024 - Presente</p>
+                <p>Cursando</p>
+            </div>
+            
+            <div class="educacao-item">
+                <h4>FAVENI/MG</h4>
+                <p><strong>Pós-Graduação em Engenharia de Software</strong> | 2022</p>
+                <p>Trabalho de conclusão: "O Papel do Engenheiro de Software na Indústria dos Games"</p>
+            </div>
+            
+            <div class="educacao-item">
+                <h4>UNIVERSIDADE DE FRANCA</h4>
+                <p><strong>Graduação em Gestão da Tecnologia da Informação</strong> | 2020</p>
+            </div>
+            
+            <div class="educacao-item">
+                <h4>IF SUDESTE MG</h4>
+                <p><strong>Técnico em Eletrotécnica</strong> | 2020</p>
+            </div>
+            
+            <div class="destaque">
+                <h4>Certificações e Cursos Complementares</h4>
+                <ul>
+                    <li>Marketing Digital - FAVENI/MG (240 horas)</li>
+                    <li>Desenvolvimento Web Full Stack - Udemy (2023)</li>
+                    <li>Inglês Avançado - Cultura Inglesa (Cursando)</li>
+                    <li>Java COMPLETO Programação Orientada a Objetos + Projetos (Cursando)</li>
                 </ul>
-            <img src="projeto.webp" >
-        </div>
-        
-    </section>
+                
+                <h4 style="margin-top: 1.5rem;">Habilidades Técnicas</h4>
+                <div class="habilidades">
+                    <span class="habilidade">JavaScript</span>
+                    <span class="habilidade">Node.js</span>
+                    <span class="habilidade">ESNext</span>
+                    <span class="habilidade">HTML5</span>
+                    <span class="habilidade">CSS3</span>
+                    <span class="habilidade">Ajax</span>
+                    <span class="habilidade">GULP</span>
+                    <span class="habilidade">WEBPACK</span>
+                    <span class="habilidade">jQuery</span>
+                    <span class="habilidade">Bootstrap</span>
+                    <span class="habilidade">React</span>
+                    <span class="habilidade">Next.js</span>
+                    <span class="habilidade">VueJS</span>
+                    <span class="habilidade">Angular</span>
+                    <span class="habilidade">MySQL</span>
+                    <span class="habilidade">MongoDB</span>
+                    <span class="habilidade">Express</span>
+                    <span class="habilidade">Git</span>
+                </div>
+            </div>
+        </section>
 
-    <section id="contato">
-        <h2>Contato</h2>
-        <p>Entre em contato comigo...</p>
+        <section id="experiencia">
+            <h2>Experiência Profissional</h2>
+            
+            <div class="experiencia-item">
+                <h4>CODEME ENGENHARIA S.A</h4>
+                <p><strong>Montador de Fabricação</strong> | Set 2020 - Mai 2024</p>
+                <ul>
+                    <li>Preparação de peças para solda e interpretação de desenhos estruturais</li>
+                    <li>Operação de ponte rolante e equipamentos de corte</li>
+                    <li>Trabalho em equipe seguindo rigorosos protocolos de segurança</li>
+                </ul>
+                <p class="destaque"><strong>Competências desenvolvidas:</strong> atenção aos detalhes, trabalho em equipe, seguimento de protocolos, resolução de problemas técnicos.</p>
+            </div>
+            
+            <div class="experiencia-item">
+                <h4>SESÉ LOGÍSTICA DO BRASIL</h4>
+                <p><strong>Auxiliar de Escritório</strong> | Jan 2019 - Jun 2019</p>
+                <ul>
+                    <li>Controle de estoque e inventário permanente</li>
+                    <li>Gestão de linha de produção e sequenciamento de peças</li>
+                    <li>Implantação de sistema Kanban para melhoria contínua</li>
+                    <li>Criação de indicadores e relatórios de desempenho</li>
+                </ul>
+                <p class="destaque"><strong>Competências desenvolvidas:</strong> organização, análise de dados, melhoria de processos, gestão de tempo.</p>
+            </div>
+            
+            <div class="experiencia-item">
+                <h4>CEVA LOGISTICS LTDA</h4>
+                <p><strong>Auxiliar de Escritório</strong> | Out 2015 - Jan 2019</p>
+                <ul>
+                    <li>Gestão de estoque com controle FIFO e inventário anual</li>
+                    <li>Coordenação de logística reversa e gestão de embalagens</li>
+                    <li>Implementação de práticas 5S e Kaizen na área de trabalho</li>
+                    <li>Treinamento de novos colaboradores</li>
+                </ul>
+                <p class="destaque"><strong>Competências desenvolvidas:</strong> liderança, gestão de pessoas, solução de problemas, trabalho sob pressão.</p>
+            </div>
+        </section>
 
-        <a href="https://wa.me/+5532991283984" target="_blank">
-            <img class="img1" src="wpp.jpeg" alt="Falar no WhatsApp">
-        </a>
-        <a href="https://www.linkedin.com/in/jonathan-trovato-7b063b203/" target="_blank">
-            <img class="img2" src="in.png" alt="Falar no WhatsApp">
-        </a>
-        <a href="https://www.instagram.com/trovatinho/" target="_blank">
-            <img class="img3" src="insta.jpg" alt="Falar no WhatsApp">
-        </a>
-    </section>
-</div>
+        <section id="projetos">
+            <h2>Projetos e Publicações</h2>
+            
+            <div class="projeto">
+                <h3>Estudo da Viabilidade do Uso de um Sistema Eletromecânico para Automatização de Reanimador Manual em Pacientes com Dificuldades Respiratórias</h3>
+                <p>Publicação acadêmica no Núcleo do Conhecimento abordando soluções tecnológicas para desafios na área da saúde, especialmente relevantes no contexto pandêmico.</p>
+                
+                <a href="https://www.nucleodoconhecimento.com.br/tecnologia/dificuldades-respiratorias" target="_blank" class="botao">
+                    <i class="fas fa-external-link-alt"></i> Ver Publicação
+                </a>
+                
+                <img src="projeto.webp" alt="Projeto de pesquisa sobre reanimador automático">
+            </div>
+            
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Estou aberto a oportunidades e colaborações. Sinta-se à vontade para entrar em contato:</p>
+            
+            <div style="margin-top: 1.5rem;">
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> Jonathantrovato@gmail.com</p>
+                <p><i class="fas fa-phone"></i> <strong>Telefone:</strong> (32) 99128-3984</p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Localização:</strong> Minas Gerais, Brasil</p>
+            </div>
+            
+            <div class="contato-links">
+                <a href="https://wa.me/+5532991283984" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/jonathan-trovato-7b063b203/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/Trovato1" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/trovatinho/" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </section>
+    </div>
 
 </body>
 </html>
